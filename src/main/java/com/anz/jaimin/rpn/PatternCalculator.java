@@ -52,7 +52,7 @@ public class PatternCalculator {
 
         // check if there is an empty stack
         if (valuesStack.isEmpty()) {
-            throw new EvaluatorException("empty stack");
+            throw new EvaluatorException("stack empty, enter expression or 'exit' to quit");
         }
 
         // Factory pattern: Decide which operation to be executed
@@ -140,7 +140,7 @@ public class PatternCalculator {
      * @throws EvaluatorException
      */
     private void eval(String input, boolean isUndoOperation) throws EvaluatorException {
-        if (input == null) {
+        if ((input != null) && (input.length() == 0)) {
             throw new EvaluatorException("Input cannot be null.");
         }
         currentTokenIndex = 0;
